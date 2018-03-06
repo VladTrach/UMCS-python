@@ -1,6 +1,20 @@
 # zad 5 ##################################
 
+n1 = int(input('wpisz ilosc liczb '))
+print(n1)
 
+arr = []
+
+for i in range(n1):
+    arr.append(int(input()))
+    
+arr.sort()
+
+print('podaj pszedzial\n')
+a3 = int(input('od elementu - '))
+b3 = int(input('do elementu - '))
+
+print(arr[a3:b3+1])
 
 # zad 4 ##################################
 from math import floor
@@ -8,7 +22,7 @@ from math import floor
 liczba = input('podaj przez ile liter wyswietlac')
 
 n = floor(26 / int(liczba))
-print(n)
+
 for i in range(n):
     print(chr(i*int(liczba)+65),chr(i*int(liczba)+97))
 
