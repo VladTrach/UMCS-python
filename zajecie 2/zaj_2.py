@@ -1,24 +1,28 @@
+## zad 5 ####################################
+
 from math import sqrt
 from math import pow
 import random
+
 kr = ()
 lista = []
 lsr = []
+point  = (random.randint(0, 11),random.randint(0, 11))
+
+print(point)
+
 for i in range(10):
   kr = (random.randint(0, 11),random.randint(0, 11))
   lista.append(kr)
   
 for i in range(9):
-  kr = (sqrt( pow(lista[i][0] - lista[i+1][0],2) +  pow(lista[i][1] - lista[i+1][1],2)),lista[i])
+  kr = (round(sqrt( pow(lista[i][0] - point[0],2) +  pow(lista[i][1] - point[1],2)),3),lista[i])
+  print(kr)
   lsr.append(kr)
 
-sorted(lsr,lsr[0])
+lsr = sorted(lsr, key=lambda elem: elem[0])
 
 print(lsr)
-
-kr = (random.randint(0, 11),random.randint(0, 11))
-print(kr)
-print(lista)
 
 ## zad 4 ####################################
 
@@ -36,6 +40,31 @@ def main_fun(k,n):
 lst = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16]
 
 print(main_fun(log_fun,lst))
+
+## zad 3 #####################################
+
+from fnmatch import fnmatch
+from os import listdir
+
+path = input('Podaj sciezke ')
+
+path = path[:-1]
+
+form = input('Podaj rozszerzenie plikow ')
+
+form = '*.' + form
+
+listaPlikow = listdir(path)
+
+def genName( lista, form ):
+    
+    for i in lista:
+        if fnmatch(i,form):
+            yield i
+            
+listaPliko = [x for x in genName(listaPlikow,form)]
+
+print(listaPliko)
 
 ## zad 2 #####################################
 
